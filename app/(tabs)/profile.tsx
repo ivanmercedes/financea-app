@@ -1,11 +1,11 @@
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 const page = () => {
-    return ( 
-        <Text>
-            profile
-        </Text>
-     );
-}
- 
+  return (
+    <View className="flex-1 justify-center items-center bg-black">
+      <Text className="text-white">Profile</Text>
+    </View>
+  );
+};
+
 export default page;

@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Colors from "@/constants/Colors";
 import { AntDesign, FontAwesome, SimpleLineIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
@@ -30,6 +31,7 @@ const Layout = () => {
         <Tabs.Screen
           name="index"
           options={{
+            header: () => <Header />,
             tabBarIcon: ({ color, size, focused }) => (
               <View
                 style={{
@@ -46,6 +48,7 @@ const Layout = () => {
         <Tabs.Screen
           name="transactions"
           options={{
+            headerShown: false,
             tabBarIcon: ({ color, size, focused }) => (
               <View
                 style={{
@@ -62,6 +65,7 @@ const Layout = () => {
         <Tabs.Screen
           name="profile"
           options={{
+            headerShown: false,
             tabBarIcon: ({ color, size, focused }) => (
               <View
                 style={{

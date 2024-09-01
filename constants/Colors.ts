@@ -1,5 +1,5 @@
 export default {
-  black: '#A1A1A1',
+  black: '#1A1A1A',
   grey: '#242424',
   white: '#FCFCFC',
   tintColor: '#723FEB',

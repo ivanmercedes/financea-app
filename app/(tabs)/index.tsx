@@ -1,6 +1,8 @@
+import ExpenseBlcok from "@/components/ExpenseBlock";
 import Colors from "@/constants/Colors";
 import { ScrollView, Text, View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
+import ExpenseList from '@/data/expenses.json'
 
 const page = () => {
 
@@ -60,6 +62,8 @@ const page = () => {
         />
           </View>
         </View>
+
+        <ExpenseBlcok ExpenseList={ExpenseList}/>
       </ScrollView>
     </View>
   );

@@ -6,7 +6,7 @@ const Header = () => {
       <View className="flex flex-row items-center gap-2">
         <Image
           source={{
-            uri: "https://i.pravatar.cc/250?u=17",
+            uri: "https://miro.medium.com/v2/resize:fill:88:88/1*I90XVB4ux0OsgkMwJMftNQ.jpeg",
           }}
           className="w-12 h-12 rounded-full"
         />

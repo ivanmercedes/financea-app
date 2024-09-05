@@ -1,8 +1,10 @@
 import ExpenseBlcok from "@/components/ExpenseBlock";
+import IncomeBlock from "@/components/IncomeBlock";
 import Colors from "@/constants/Colors";
+import ExpenseList from '@/data/expenses.json';
+import incomeList from '@/data/income.json';
 import { ScrollView, Text, View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
-import ExpenseList from '@/data/expenses.json'
 
 const page = () => {
 
@@ -64,6 +66,7 @@ const page = () => {
         </View>
 
         <ExpenseBlcok ExpenseList={ExpenseList}/>
+        <IncomeBlock incomeList={incomeList} />
       </ScrollView>
     </View>
   );

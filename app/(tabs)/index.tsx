@@ -3,31 +3,30 @@ import IncomeBlock from "@/components/IncomeBlock";
 import SpendingBlock from "@/components/SpendingBlock";
 import Colors from "@/constants/Colors";
 import ExpenseList from "@/data/expenses.json";
-import incomeList from "@/data/income.json";
+import icome from "@/data/income.json";
 import spendingList from "@/data/spending.json";
+import { useAppStore } from "@/store/appStore";
+import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
+import { shallow } from "zustand/shallow";
 
 const page = () => {
-  const pieData = [
-    {
-      value: 47,
-      color: Colors.tintColor,
-      focused: true,
-      text: "47%",
-    },
-    {
-      value: 40,
-      color: Colors.blue,
-      text: "40%",
-    },
-    {
-      value: 16,
-      color: Colors.white,
-      text: "16%",
-    },
-    { value: 3, color: "#FFA5BA", gradientCenterColor: "#FF7F97", text: "3%" },
-  ];
+  const {pieData, incomeList, expenseList} = useAppStore(
+    (state) => ({
+      pieData: state.pieData,
+      incomeList: state.incomeList,
+      expenseList : state.expenseList
+    }),
+    shallow
+  );
+
+  const { setIncomeList, setExpenseList } = useAppStore();
+
+  useEffect(() => {
+    setIncomeList(icome);
+    setExpenseList(ExpenseList);
+  }, []);
 
   return (
     <View className="flex-1 bg-black pt-4 px-5">
@@ -73,7 +72,7 @@ const page = () => {
           </View>
         </View>
 
-        <ExpenseBlcok ExpenseList={ExpenseList} />
+        <ExpenseBlcok ExpenseList={expenseList} />
         <IncomeBlock incomeList={incomeList} />
 
         <SpendingBlock spendingList={spendingList} />

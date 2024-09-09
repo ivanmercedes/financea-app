@@ -5,6 +5,7 @@ import Colors from "@/constants/Colors";
 import ExpenseList from "@/data/expenses.json";
 import icome from "@/data/income.json";
 import spendingList from "@/data/spending.json";
+import { fetchAPI } from "@/lib/fetch";
 import { useAppStore } from "@/store/appStore";
 import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
@@ -26,6 +27,14 @@ const page = () => {
   useEffect(() => {
     setIncomeList(icome);
     setExpenseList(ExpenseList);
+
+    fetchAPI(`/(api)/dashboard`,{
+      headers: {
+        token: `user_2kvsjiZy3c7hTWQPwHafmyYImPo`,
+      },
+    }).then((data) => {
+      console.log(data);
+    });
   }, []);
 
   return (
